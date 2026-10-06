@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"reflect"
 )
 
 type ContaCorrente struct {
@@ -27,6 +26,12 @@ func main() {
 		200.00,
 	}
 
-	fmt.Println(reflect.TypeOf(contaBruno))
+	fmt.Println(contaBruno)
 	fmt.Println(contaBruna)
+
+	var contaCris *ContaCorrente
+	contaCris = new(ContaCorrente)
+	contaCris.titular = "Cris"
+
+	fmt.Println(*contaCris)
 }
