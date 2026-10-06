@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 type ContaCorrente struct {
 	titular       string
@@ -17,5 +20,13 @@ func main() {
 		saldo:         125.50,
 	}
 
-	fmt.Println(contaBruno)
+	contaBruna := ContaCorrente{
+		"Bruna",
+		222,
+		11122,
+		200.00,
+	}
+
+	fmt.Println(reflect.TypeOf(contaBruno))
+	fmt.Println(contaBruna)
 }
