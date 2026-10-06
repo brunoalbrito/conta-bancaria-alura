@@ -1,14 +1,20 @@
 package main
 
-import (
-	"fmt"
-)
-
 type ContaCorrente struct {
 	titular       string
 	numeroAgencia int
 	numeroConta   int
 	saldo         float64
+}
+
+func (c *ContaCorrente) sacar(valorDoSaque float64) string {
+	podeSacar := valorDoSaque <= c.saldo
+	if podeSacar {
+		c.saldo = c.saldo - valorDoSaque
+		return "Saque realizado com sucesso"
+	}
+
+	return "Saldo insuficiente"
 }
 
 func main() {
@@ -19,19 +25,21 @@ func main() {
 		saldo:         125.50,
 	}
 
-	contaBruna := ContaCorrente{
-		"Bruna",
-		222,
-		11122,
-		200.00,
-	}
+	contaBruno.sacar(50.00)
 
-	fmt.Println(contaBruno)
-	fmt.Println(contaBruna)
+	// contaBruna := ContaCorrente{
+	// 	"Bruna",
+	// 	222,
+	// 	11122,
+	// 	200.00,
+	// }
 
-	var contaCris *ContaCorrente
-	contaCris = new(ContaCorrente)
-	contaCris.titular = "Cris"
+	// fmt.Println(contaBruno)
+	// fmt.Println(contaBruna)
 
-	fmt.Println(*contaCris)
+	// var contaCris *ContaCorrente
+	// contaCris = new(ContaCorrente)
+	// contaCris.titular = "Cris"
+
+	// fmt.Println(*contaCris)
 }
